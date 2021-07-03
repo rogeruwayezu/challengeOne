@@ -1,3 +1,4 @@
+/****  Promise for fetching all the users ****/
 
 async function fetchUsers() {
     try {
@@ -9,6 +10,8 @@ async function fetchUsers() {
         console.log(error);
     }
 }
+
+/****  Function for displaying users on the webpage ****/
 
 function displayUsers() {
     let allUsers;
@@ -29,14 +32,13 @@ function displayUsers() {
                 const btn = document.createElement("BUTTON");
                 btn.innerHTML = "View Post";
                 document.body.appendChild(btn);
+            
+            //adding id and class attributes to our button
                 btn.setAttribute('id', user.id);
                 btn.setAttribute('class', `myBtn-${user.id}`);
-                var element = document.querySelector('.container-user');
-            element.classList.add("card");
-            displayPosts(user);
-
-            
-            
+            //     var element = document.querySelector('.container-user');
+            // element.classList.add("card");
+            // displayPosts(user);        
             
         });
                     
@@ -46,35 +48,32 @@ function displayUsers() {
 }
 displayUsers();
 
+/*** function for displaying user's posts when a clicked a button **/
 function displayPosts(user) {
     var modal;
     var btnClick;
     var span;
     var modalContent;
     function modalSelector() {
-            // Get the modal
-        
+        // Get the modal       
         modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    btnClick = document.querySelector(".myBtn-" + user.id);
+        // Get the button that opens the modal
+        btnClick = document.querySelector(".myBtn-" + user.id);
 
-    // Get the <span> element that closes the modal
-    span = document.getElementsByClassName("close")[0];
+        // Get the <span> element that closes the modal
+        span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks the button, open the modal 
-    btnClick.onclick = function() {
-        modal.style.display = "block";
-    }
+        // When the user clicks the button, open the modal 
+        btnClick.onclick = function() {
+            modal.style.display = "block";
+        }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-//         modalContent = document.querySelector('.modal-content');
-//                    while (modalContent.hasChildNodes()) {
-//     modalContent.removeChild(modalContent.lastChild);
-// }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    
     }
     modalSelector();
     // alert(`here is the user id ${user.id}`)
@@ -150,13 +149,7 @@ async function fetchPosts(user_id) {
     
 }
 
-/***** function for catching user's id when 
-        the view post button is clicked *****/
 
-function reply_click(event){
-    
-
-}
   
 
 
